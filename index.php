@@ -52,23 +52,23 @@
                     <div class="nav">
                         <div class="sb-sidenav-menu-heading">Menu</div>
                         <a class="nav-link" href="index.html">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-clipboard-list"></i></div>
                             Data order
                         </a>
                         <a class="nav-link" href="index.html">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-boxes"></i></div>
                             Stock Barang
                         </a>
                         <a class="nav-link" href="index.html">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-clipboard-check"></i></div>
                             Barang Masuk
                         </a>
                         <a class="nav-link" href="index.html">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fas fa-id-card"></i></div>
                             Kelola Pelanggan
                         </a>
                         <a class="nav-link" href="index.html">
-                            <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
+                            <div class="sb-nav-link-icon"><i class="fa fa-sign-out"></i></div>
                             Logout
                         </a>
 
