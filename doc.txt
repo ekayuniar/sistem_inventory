@@ -1,0 +1,24 @@
+user : id_user, username, password
+produk : id_produk, nama_produk, deskripsi, harga, stok
+pesanan : id_pesanan, tgl_pesan, id_pelanggan
+detail_pesanan : id_detailpesanan, id_pesanan, id_produk, qty
+masuk : id_masuk, id_produk, qty, tgl_masuk
+pelanggan : id_pelanggan, nama_pelanggan, notelp, alamat
+
+Fitur selanjutnya 
+- Cek Login // done
+- Hitung jumlah pesanan, barang, pelanggan // done
+- Pengurangan stock ketika barang dipilih // done
+
+-Fitur Barang masuk // done
+-Penambahan Stock ketika barang dihapus dari pesanan //done
+
+- edit delete barang,// done
+- edit delete pelanggan // done
+
+
+-Edit delete pesanan, 
+- detail_pesanan
+- edit delete masuk
+
+
