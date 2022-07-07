@@ -1,3 +1,6 @@
+<?php
+require 'cek_login.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 

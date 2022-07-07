@@ -1,3 +1,6 @@
+<?php
+require 'cek_login.php';
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -86,21 +89,23 @@
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
-                                <tfoot>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Nama Pelanggan</th>
-                                        <th>No. Telp</th>
-                                        <th>Alamat</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                </tfoot>
                                 <tbody>
+                                    <?php
+                                    $getpelanggan = mysqli_query($koneksi, "SELECT * FROM pelanggan");
+                                    $i = 1;
+
+                                    while ($pl = mysqli_fetch_array($getpelanggan)) {
+                                        $id_pelanggan = $pl['id_pelanggan'];
+                                        $nama_pelanggan = $pl['nama_pelanggan'];
+                                        $no_telp = $pl['no_telp'];
+                                        $alamat = $pl['alamat'];
+                                    }
+                                    ?>
                                     <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
+                                        <td><?= $i++; ?></td>
+                                        <td><?= $nama_pelanggan; ?></td>
+                                        <td><?= $no_telp; ?></td>
+                                        <td><?= $alamat; ?></td>
                                         <td>Edit | Delete</td>
                                     </tr>
 
@@ -139,18 +144,19 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Data Pelanggan</h4>
+                <h4 class="modal-title">Data Tambah Pelanggan</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <form method="POST">
                 <!-- Modal body -->
                 <div class="modal-body">
-                    Pilih Pelanggan
+                    <input type="text" name="nama_pelanggan" class="form-control mt-3" placeholder="nama pelanggan">
+                    <input type="text" name="no_telp" class="form-control mt-3" placeholder="nomor telp">
+                    <input type="text" name="alamat" class="form-control mt-3" placeholder="alamat">
                 </div>
-
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-success" name="tambahpesanan">Simpan</button>
+                    <button type="submit" class="btn btn-success" name="tambahpelanggan">Simpan</button>
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tutup</button>
                 </div>
             </form>
