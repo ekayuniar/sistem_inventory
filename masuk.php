@@ -56,51 +56,47 @@
         <div id="layoutSidenav_content">
             <main>
                 <div class="container-fluid px-4">
-                    <h1 class="mt-4">Data Order</h1>
-                    <ol class="breadcrumb mb-4">
-
-                        <li class="breadcrumb-item active">Selamat Datang</li>
-                    </ol>
+                    <h1 class="mt-4">Data Barang Masuk</h1>
                     <div class="col-xl-3 col-md-6">
-                        <div class="card bg-primary text-white mb-4">
-                            <div class="card-body">Jumlah Pesanan :</div>
-                        </div>
                         <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal"
                             data-bs-target="#myModal">
-                            Tambah Pesanan
+                            Tambah Barang Masuk
                         </button>
                     </div>
                     <div class="card mb-4">
                         <div class="card-header">
                             <i class="fas fa-table me-1"></i>
-                            Data Order
+                            Data Barang Masuk
                         </div>
                         <div class="card-body">
                             <table id="datatablesSimple">
                                 <thead>
                                     <tr>
-                                        <th>ID Pesanan</th>
-                                        <th>Tanggal Pesan</th>
-                                        <th>Nama Pelanggan</th>
+                                        <th>No</th>
+                                        <th>Nama produk</th>
+                                        <th>Deskripsi</th>
                                         <th>Jumlah</th>
+                                        <th>Tanggal</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </thead>
                                 <tfoot>
                                     <tr>
-                                        <th>ID Pesanan</th>
-                                        <th>Tanggal Pesan</th>
-                                        <th>Nama Pelanggan</th>
+                                        <th>No</th>
+                                        <th>Nama produk</th>
+                                        <th>Deskripsi</th>
                                         <th>Jumlah</th>
+                                        <th>Tanggal</th>
                                         <th>Aksi</th>
                                     </tr>
                                 </tfoot>
                                 <tbody>
                                     <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
+                                        <td>1</td>
+                                        <td>pensil</td>
+                                        <td>pensil 2B</td>
+                                        <td>2000</td>
+                                        <td>10</td>
                                         <td>Edit | Delete</td>
                                     </tr>
 
