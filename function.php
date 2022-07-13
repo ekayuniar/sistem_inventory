@@ -54,3 +54,19 @@ if (isset($_POST['tambahpelanggan'])) {
     </script>';
     }
 }
+
+if (isset($_POST['hapuspelanggan'])) {
+    $id_pelanggan = $_POST['id_pelanggan'];
+
+    $hapuspelanggan = mysqli_query($koneksi, "DELETE FROM pelanggan WHERE id_pelanggan='$id_pelanggan'");
+
+    if ($hapuspelanggan) {
+        // kalau sukses
+        header('location:pelanggan.php');
+    } else {
+        echo '<script> 
+        alert("Gagal Hapus Pelanggan")
+        window.location.href="pelanggan.php"
+        </script>';
+    }
+}

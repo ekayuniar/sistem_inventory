@@ -1,5 +1,6 @@
 <?php
 require 'cek_login.php';
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -93,21 +94,28 @@ require 'cek_login.php';
                                     <?php
                                     $getpelanggan = mysqli_query($koneksi, "SELECT * FROM pelanggan");
                                     $i = 1;
-
-                                    while ($pl = mysqli_fetch_array($getpelanggan)) {
-                                        $id_pelanggan = $pl['id_pelanggan'];
-                                        $nama_pelanggan = $pl['nama_pelanggan'];
-                                        $no_telp = $pl['no_telp'];
-                                        $alamat = $pl['alamat'];
-                                    }
+                                    foreach ($getpelanggan as $pl) :
                                     ?>
                                     <tr>
-                                        <td><?= $i++; ?></td>
-                                        <td><?= $nama_pelanggan; ?></td>
-                                        <td><?= $no_telp; ?></td>
-                                        <td><?= $alamat; ?></td>
-                                        <td>Edit | Delete</td>
+                                        <td><?= $i; ?></td>
+                                        <td><?= $pl['nama_pelanggan']; ?></td>
+                                        <td><?= $pl['no_telp']; ?></td>
+                                        <td><?= $pl['alamat'];  ?></td>
+                                        <td>
+                                            <button type="button" class="btn btn-warning" data-bs-toggle="modal"
+                                                data-bs-target="#edit<?= $pl['id_pelanggan'] ?>">
+                                                Edit
+                                            </button> |
+
+                                            <button type="button" class="btn btn-danger" data-bs-toggle="modal"
+                                                data-bs-target="#delete<?= $pl['id_pelanggan'] ?>">
+                                                Delete
+                                            </button>
+
+                                        </td>
                                     </tr>
+                                    <?php $i++; ?>
+                                    <?php endforeach; ?>
 
                                 </tbody>
                             </table>
@@ -138,6 +146,7 @@ require 'cek_login.php';
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
     <script src="js/datatables-simple-demo.js"></script>
 </body>
+<!-- Modal Tambah -->
 <div class="modal" id="myModal">
     <div class="modal-dialog">
         <div class="modal-content">
@@ -158,6 +167,34 @@ require 'cek_login.php';
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-success" name="tambahpelanggan">Simpan</button>
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+<!-- Modal Delete -->
+<div class="modal" id="delete<?= $pl['id_pelanggan']; ?>">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Delete Data Pelanggan</h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form method="POST">
+                <!-- Modal body -->
+                <div class="modal-body">
+                    Apakah Anda ingin menghapus <?= $pl['nama_pelanggan']; ?> ini?
+                    <input type="hidden" name="id_pelanggan" class="form-control mt-3"
+                        value="<?= $pl['id_pelanggan'];  ?>">
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success" name="hapuspelanggan">Ya</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Batal</button>
                 </div>
             </form>
         </div>
