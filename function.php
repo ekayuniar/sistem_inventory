@@ -70,3 +70,48 @@ if (isset($_POST['hapuspelanggan'])) {
         </script>';
     }
 }
+
+if (isset($_POST['editpelanggan'])) {
+    // initial variable
+    $nama_pelanggan = $_POST['nama_pelanggan'];
+    $no_telp = $_POST['no_telp'];
+    $alamat = $_POST['alamat'];
+    $id_pelanggan = $_POST['id_pelanggan'];
+
+    $editpelanggan = mysqli_query($koneksi, "UPDATE pelanggan SET 
+        nama_pelanggan='$nama_pelanggan', 
+        no_telp='$no_telp', 
+        alamat='$alamat' 
+            WHERE id_pelanggan='$id_pelanggan'");
+
+    if ($editpelanggan) {
+        // kalau sukses
+        header('location:pelanggan.php');
+    } else {
+        echo '<script> 
+            alert("Gagal Edit Pelanggan")
+            window.location.href="pelanggan.php"
+            </script>';
+    }
+}
+
+if (isset($_POST['tambahbarang'])) {
+    //deskripsi initial variable
+    $nama_produk = $_POST['nama_produk'];
+    $deskripsi = $_POST['deskripsi'];
+    $harga = $_POST['harga'];
+    $stock = $_POST['stock'];
+
+    $insert_produk = mysqli_query($koneksi, "INSERT INTO produk (nama_produk, deskripsi, harga, stock) 
+    VALUES ('$nama_produk', '$deskripsi', '$harga', '$stock')");
+
+    if ($insert_produk) {
+        header('location:stock.php');
+    } else {
+        echo '
+        <script>
+        alert("Gagal Tambah Produk")
+        window.location.href="stock.php"
+        </script>';
+    }
+}

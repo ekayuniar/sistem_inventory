@@ -101,15 +101,25 @@ require 'cek_login.php';
                                     </tr>
                                 </tfoot>
                                 <tbody>
+                                    <?php
+                                    $getproduk = mysqli_query($koneksi, "SELECT * FROM produk");
+                                    $i = 1;
+
+                                    while ($brg = mysqli_fetch_array($getproduk)) {
+                                        $nama_produk = $brg['nama_produk'];
+                                        $deskripsi = $brg['deskripsi'];
+                                        $harga = $brg['harga'];
+                                        $stock = $brg['stock'];
+                                    ?>
                                     <tr>
-                                        <td>1</td>
-                                        <td>pensil</td>
-                                        <td>pensil 2B</td>
-                                        <td>2000</td>
-                                        <td>10</td>
+                                        <td><?= $i++;  ?></td>
+                                        <td><?= $nama_produk;  ?></td>
+                                        <td><?= $deskripsi;  ?></td>
+                                        <td><?= $harga;  ?></td>
+                                        <td><?= $stock;  ?></td>
                                         <td>Edit | Delete</td>
                                     </tr>
-
+                                    <?php }; ?>
                                 </tbody>
                             </table>
                         </div>
@@ -139,24 +149,28 @@ require 'cek_login.php';
     <script src="https://cdn.jsdelivr.net/npm/simple-datatables@latest" crossorigin="anonymous"></script>
     <script src="js/datatables-simple-demo.js"></script>
 </body>
+<!-- Modal Tambah -->
 <div class="modal" id="myModal">
     <div class="modal-dialog">
         <div class="modal-content">
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Data Pesanan</h4>
+                <h4 class="modal-title">Data Tambah Barang</h4>
                 <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
             </div>
             <form method="POST">
                 <!-- Modal body -->
                 <div class="modal-body">
-                    Pilih Pelanggan
-                </div>
+                    <input type="text" name="nama_produk" class="form-control mt-3" placeholder="nama produk">
+                    <input type="text" name="deskripsi" class="form-control mt-3" placeholder="deskripsi">
+                    <input type="num" name="harga" class="form-control mt-3" placeholder="harga">
+                    <input type="num" name="stock" class="form-control mt-3" placeholder="stock">
 
+                </div>
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-success" name="tambahpesanan">Simpan</button>
+                    <button type="submit" class="btn btn-success" name="tambahbarang">Simpan</button>
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tutup</button>
                 </div>
             </form>

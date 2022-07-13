@@ -173,6 +173,37 @@ require 'cek_login.php';
     </div>
 </div>
 
+<!-- Modal Edit -->
+<div class="modal" id="edit<?= $pl['id_pelanggan']; ?>">
+    <div class="modal-dialog">
+        <div class="modal-content">
+
+            <!-- Modal Header -->
+            <div class="modal-header">
+                <h4 class="modal-title">Edit Pelanggan <?= $pl['nama_pelanggan'];  ?></h4>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <form method="POST">
+                <!-- Modal body -->
+                <div class="modal-body">
+                    <input type="text" name="nama_pelanggan" class="form-control mt-3"
+                        value="<?= $pl['nama_pelanggan'];  ?>" placeholder="nama pelanggan">
+                    <input type="text" name="no_telp" class="form-control mt-3" value="<?= $pl['no_telp'];  ?>"
+                        placeholder="nomor telp">
+                    <input type="text" name="alamat" class="form-control mt-3" value="<?= $pl['alamat'];  ?>"
+                        placeholder="alamat">
+                </div>
+                <!-- Modal footer -->
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-success" name="editpelanggan">Simpan</button>
+                    <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tutup</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
 
 <!-- Modal Delete -->
 <div class="modal" id="delete<?= $pl['id_pelanggan']; ?>">
