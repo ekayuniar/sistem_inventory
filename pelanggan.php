@@ -1,5 +1,5 @@
 <?php
-require 'ceklogin.php';
+require 'cek_login.php';
 $h1 = mysqli_query($koneksi, "SELECT * FROM pelanggan");
 $h2 = mysqli_num_rows($h1);
 
@@ -13,7 +13,7 @@ $h2 = mysqli_num_rows($h1);
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta name="description" content="" />
     <meta name="author" content="" />
-    <title>Aplikasi Kasir</title>
+    <title>Sistem Inventory</title>
     <link href="https://cdn.jsdelivr.net/npm/simple-datatables@latest/dist/style.css" rel="stylesheet" />
     <link href="css/styles.css" rel="stylesheet" />
     <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
@@ -22,7 +22,7 @@ $h2 = mysqli_num_rows($h1);
 <body class="sb-nav-fixed">
     <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
         <!-- Navbar Brand-->
-        <a class="navbar-brand ps-3" href="index.html">Aplikasi Kasir</a>
+        <a class="navbar-brand ps-3" href="index.html">Sistem Inventory</a>
         <!-- Sidebar Toggle-->
         <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i
                 class="fas fa-bars"></i></button>
@@ -111,7 +111,7 @@ $h2 = mysqli_num_rows($h1);
                                     while ($pl = mysqli_fetch_array($getpelanggan)) {
                                         $id_pelanggan = $pl['id_pelanggan'];
                                         $nama_pelanggan = $pl['nama_pelanggan'];
-                                        $notelp = $pl['notelp'];
+                                        $notelp = $pl['no_telp'];
                                         $alamat = $pl['alamat'];
 
                                     ?>
@@ -146,7 +146,7 @@ $h2 = mysqli_num_rows($h1);
                                                     <div class="modal-body">
                                                         <input type="text" name="nama_pelanggan"
                                                             class="form-control mt-3" value="<?= $nama_pelanggan; ?>">
-                                                        <input type="text" name="notelp" class="form-control mt-3"
+                                                        <input type="text" name="no_telp" class="form-control mt-3"
                                                             value="<?= $notelp;  ?>">
                                                         <input type="text" name="alamat" class="form-control mt-3"
                                                             value="<?= $alamat;  ?>">
@@ -235,7 +235,7 @@ $h2 = mysqli_num_rows($h1);
                 <!-- Modal body -->
                 <div class="modal-body">
                     <input type="text" name="nama_pelanggan" class="form-control mt-3" placeholder="nama pelanggan">
-                    <input type="text" name="notelp" class="form-control mt-3" placeholder="no telp">
+                    <input type="text" name="no_telp" class="form-control mt-3" placeholder="no telp">
                     <input type="text" name="alamat" class="form-control mt-3" placeholder="alamat">
                 </div>
 
