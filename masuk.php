@@ -80,29 +80,31 @@ require 'cek_login.php';
                                         <th>Deskripsi</th>
                                         <th>Jumlah</th>
                                         <th>Tanggal</th>
-                                        <th>Aksi</th>
                                     </tr>
                                 </thead>
-                                <tfoot>
-                                    <tr>
-                                        <th>No</th>
-                                        <th>Nama produk</th>
-                                        <th>Deskripsi</th>
-                                        <th>Jumlah</th>
-                                        <th>Tanggal</th>
-                                        <th>Aksi</th>
-                                    </tr>
-                                </tfoot>
                                 <tbody>
-                                    <tr>
-                                        <td>1</td>
-                                        <td>pensil</td>
-                                        <td>pensil 2B</td>
-                                        <td>2000</td>
-                                        <td>10</td>
-                                        <td>Edit | Delete</td>
-                                    </tr>
+                                    <?php
+                                    $getbarangmasuk = mysqli_query($koneksi, "SELECT * FROM masuk m,produk p WHERE m.id_produk=p.id_produk");
+                                    $i = 1;
 
+                                    while ($bm = mysqli_fetch_array($getbarangmasuk)) {
+                                        $id_produk = $bm['id_produk'];
+                                        $nama_produk = $bm['nama_produk'];
+                                        $deskripsi = $bm['deskripsi'];
+                                        $quantity = $bm['quantity'];
+                                        $tgl_masuk = $bm['tgl_masuk'];
+                                    ?>
+                                    <tr>
+                                        <td><?= $i++;  ?></td>
+                                        <td><?= $nama_produk;  ?></td>
+                                        <td><?= $deskripsi;  ?></td>
+                                        <td><?= $quantity;  ?></td>
+                                        <td><?= $tgl_masuk;  ?></td>
+
+                                    </tr>
+                                    <?php
+                                    };
+                                    ?>
                                 </tbody>
                             </table>
                         </div>
@@ -144,12 +146,32 @@ require 'cek_login.php';
             <form method="POST">
                 <!-- Modal body -->
                 <div class="modal-body">
-                    Pilih Pelanggan
+                    Pilih Barang
+                    <select name="id_produk" class="form-control">
+                        <?php
+                        $getproduk = mysqli_query($koneksi, "SELECT * FROM produk");
+
+                        while ($pr = mysqli_fetch_array($getproduk)) {
+                            $id_produk = $pr['id_produk'];
+                            $nama_produk = $pr['nama_produk'];
+                            $deskripsi = $pr['deskripsi'];
+                            $stock = $pr['stock'];
+                        ?>
+                        <option value="<?= $id_produk; ?>">
+                            <?= $nama_produk;  ?> - <?= $deskripsi;  ?> (Stock : <?= $stock;  ?>)
+                        </option>
+                        <?php
+                        };
+                        ?>
+                        <input type="number" name="quantity" class="form-control mt-3" placeholder="quantity" min="1"
+                            required>
+
+                    </select>
                 </div>
 
                 <!-- Modal footer -->
                 <div class="modal-footer">
-                    <button type="submit" class="btn btn-success" name="tambahpesanan">Simpan</button>
+                    <button type="submit" class="btn btn-success" name="barangmasuk">Simpan</button>
                     <button type="button" class="btn btn-danger" data-bs-dismiss="modal">Tutup</button>
                 </div>
             </form>
